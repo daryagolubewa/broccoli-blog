@@ -1,9 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
+// const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var entriesRouter = require('./routes/entries');
@@ -33,6 +34,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use(express.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
