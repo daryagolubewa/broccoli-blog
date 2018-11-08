@@ -10,16 +10,26 @@ module.exports = (sequelize, DataTypes) => {
   };
 
 
-    User.checkInfo = async (userName, userEmail, userPass) => {
-        let user = await User.findAll({
+    // User.checkInfo = async (userName, userEmail, userPass) => {
+    //     let user = await User.findAll({
+    //         where: {
+    //             name: userName,
+    //             email: userEmail,
+    //             password: userPass
+    //         }
+    //     })
+    //     return user;
+    // };
+
+    User.getEmail = async (email) => {
+        let userEmail= await User.findAll({
             where: {
-                name: userName,
-                email: userEmail,
-                password: userPass
+                email: email
             }
         })
-        return user;
+        return userEmail;
     };
+
 
     return User;
 };

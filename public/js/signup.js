@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({usName: userName, usEmail: userEmail, usPass: userPass})
         });
 
-        let blabla = await response.text();
+        let user = await response.text();
         window.location.replace("/entries");
 
     });

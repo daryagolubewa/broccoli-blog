@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn_sign_in = document.getElementById('btn_sign_in');
 
     btn_sign_in.addEventListener('click', async () => {
-        const name = document.getElementById('loginName');
         const email = document.getElementById('loginEmail');
         const pass = document.getElementById('loginPassword');
-        userName = name.value;
         userEmail = email.value;
         userPass = pass.value;
 
@@ -14,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
             },
-            body: JSON.stringify({usName: userName, usEmail: userEmail, usPass: userPass})
+            body: JSON.stringify({usEmail: userEmail, usPass: userPass})
         });
 
+        let answer = await response.text();
         window.location.replace("/account");
     });
 });
